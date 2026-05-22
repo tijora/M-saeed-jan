@@ -3,83 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M Saeed Jan | 3D Portfolio</title>
+    <title>M Saeed Jan | Ultra Realistic 3D</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
             --bg-color: #050505;
             --text-color: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
+            --accent: #00f2fe;
+            --glass: rgba(255, 255, 255, 0.05);
         }
-
         .light-mode {
-            --bg-color: #f0f0f0;
-            --text-color: #1a1a1a;
-            --glass-bg: rgba(0, 0, 0, 0.05);
-            --border-color: rgba(0, 0, 0, 0.1);
+            --bg-color: #f8f9fa;
+            --text-color: #121212;
+            --accent: #7000ff;
+            --glass: rgba(0, 0, 0, 0.05);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.5s, color 0.5s; }
-        
-        body { 
-            background: var(--bg-color); 
-            color: var(--text-color); 
-            font-family: 'Poppins', sans-serif; 
-            overflow: hidden; 
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: 0.4s; }
+        body { background: var(--bg-color); color: var(--text-color); font-family: 'Poppins', sans-serif; overflow: hidden; }
         #bg { position: fixed; top: 0; left: 0; z-index: -1; }
 
-        /* Dark/Light Toggle Button */
+        /* Mode Toggle */
         #theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            background: var(--glass-bg);
-            color: var(--text-color);
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-            font-weight: 600;
-            z-index: 100;
-            outline: none;
+            position: fixed; top: 20px; right: 20px; padding: 10px 20px;
+            background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-color); border-radius: 30px; cursor: pointer; z-index: 100;
+            backdrop-filter: blur(10px); font-weight: 600;
         }
 
+        /* 3D Overlay Container */
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
+            display: flex; justify-content: center; align-items: center; height: 100vh;
+            background: radial-gradient(circle at center, transparent, var(--bg-color));
         }
 
-        .content { text-align: center; animation: fadeIn 1.5s ease-out; }
+        .glass-card {
+            background: var(--glass); padding: 40px 60px; border-radius: 20px;
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);
+            text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: float 4s ease-in-out infinite;
+        }
 
         h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-weight: 800;
-            background: linear-gradient(45deg, #00f2fe, #7000ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800;
+            background: linear-gradient(to right, #00f2fe, #7000ff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
         }
 
-        p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+        /* Social Icons */
+        .social-links { position: fixed; bottom: 30px; left: 30px; display: flex; gap: 20px; z-index: 100; }
+        .social-links a { 
+            color: var(--text-color); font-size: 1.5rem; opacity: 0.6; 
+            transition: 0.3s; text-decoration: none;
+        }
+        .social-links a:hover { opacity: 1; color: var(--accent); transform: translateY(-5px); }
+
+        /* Footer */
+        footer {
+            position: fixed; bottom: 30px; right: 30px; font-size: 0.8rem;
+            opacity: 0.5; letter-spacing: 1px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
         }
     </style>
 </head>
@@ -89,56 +78,56 @@
     <canvas id="bg"></canvas>
 
     <div class="container">
-        <div class="content">
+        <div class="glass-card">
             <h1>M Saeed Jan</h1>
-            <p>Creative Developer</p>
+            <p style="letter-spacing: 3px; opacity: 0.8;">3D IMMERSIVE EXPERIENCE</p>
         </div>
     </div>
 
+    <div class="social-links">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <footer>
+        © 2024 M Saeed Jan. All rights reserved.
+    </footer>
+
     <script>
-        // Theme Toggle Logic
         const btn = document.getElementById('theme-toggle');
         btn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
-            // Update 3D object color based on mode
-            const isLight = document.body.classList.contains('light-mode');
-            torusKnot.material.color.setHex(isLight ? 0x7000ff : 0x00f2fe);
         });
 
-        // Three.js Scene Setup
+        // Three.js 3D Background
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg'), antialias: true, alpha: true });
-
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.position.setZ(30);
 
-        // 3D Object
-        const geometry = new THREE.TorusKnotGeometry(10, 2.5, 150, 16);
+        const geometry = new THREE.IcosahedronGeometry(12, 1);
         const material = new THREE.MeshStandardMaterial({ color: 0x00f2fe, wireframe: true });
-        const torusKnot = new THREE.Mesh(geometry, material);
-        scene.add(torusKnot);
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
 
-        // Lighting
-        const pointLight = new THREE.PointLight(0xffffff, 1);
-        pointLight.position.set(20, 20, 20);
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(pointLight, ambientLight);
+        const light = new THREE.PointLight(0xffffff, 1);
+        light.position.set(20, 20, 20);
+        scene.add(light, new THREE.AmbientLight(0xffffff, 0.5));
 
         function animate() {
             requestAnimationFrame(animate);
-            torusKnot.rotation.x += 0.005;
-            torusKnot.rotation.y += 0.01;
+            mesh.rotation.y += 0.005;
+            mesh.rotation.x += 0.002;
             renderer.render(scene, camera);
         }
+        animate();
 
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
-
-        animate();
     </script>
 </body>
 </html>
