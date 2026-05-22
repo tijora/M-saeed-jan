@@ -52,13 +52,17 @@
             margin-bottom: 5px;
         }
 
-        /* Social Links */
-        .social-links { position: fixed; bottom: 30px; left: 30px; display: flex; gap: 20px; z-index: 100; }
-        .social-links a { 
-            color: var(--text-color); font-size: 1.5rem; opacity: 0.6; 
-            transition: 0.3s; text-decoration: none;
-        }
-        .social-links a:hover { opacity: 1; color: var(--accent); transform: translateY(-5px); }
+        /* Social Links with Labels */
+        .social-links { position: fixed; bottom: 30px; left: 30px; display: flex; gap: 30px; z-index: 100; }
+        
+        .social-item { display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; color: var(--text-color); }
+        
+        .social-item i { font-size: 1.5rem; opacity: 0.6; transition: 0.3s; }
+        
+        .social-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0; transition: 0.3s; transform: translateY(5px); }
+
+        .social-item:hover i { opacity: 1; color: var(--accent); transform: translateY(-5px); }
+        .social-item:hover .social-label { opacity: 0.8; transform: translateY(0); }
 
         /* Footer */
         footer {
@@ -85,12 +89,18 @@
     </div>
 
     <div class="social-links">
-        <a href="https://www.facebook.com/share/1Cx7cpMNSa/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://youtube.com/@isaeedjan?si=nRCU5Tf3cMOO5901" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/share/1Cx7cpMNSa/" target="_blank" class="social-item">
+            <span class="social-label">Follow</span>
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://youtube.com/@isaeedjan?si=nRCU5Tf3cMOO5901" target="_blank" class="social-item">
+            <span class="social-label">Subscribe</span>
+            <i class="fab fa-youtube"></i>
+        </a>
     </div>
 
     <footer>
-        © 2024 M Saeed Jan. All rights reserved.
+        © 2026 M Saeed Jan. All rights reserved.
     </footer>
 
     <script>
