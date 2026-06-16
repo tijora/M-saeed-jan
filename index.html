@@ -149,7 +149,7 @@
             <div class="md:col-span-7 text-center md:text-left flex flex-col items-center md:items-start" data-aos="fade-right" data-aos-duration="1000">
                 <span class="text-blue-400 font-semibold tracking-widest text-xs uppercase bg-blue-950/40 px-4 py-1.5 rounded-full border border-blue-900/40 inline-block mb-4">Web Architect & Creator</span>
                 <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight dynamic-text">
-                    Hi, I am <br><span class="text-gradient">Saeed</span>
+                    Hi, I am <br><span class="text-gradient">M SAEED JAN</span>
                 </h1>
                 
                 <div class="h-12 mt-3 flex items-center">
@@ -172,7 +172,7 @@
                 
                 <div class="relative z-10 w-72 h-96 sm:w-80 sm:h-[440px] md:w-[360px] md:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm bg-white/5">
                     <!-- TARGET IMAGE CONNECTED TO YOUR FILE VERBATIM -->
-                    <img src="1781596504206.png" alt="M Saeed Jan - Web Architect" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105">
+                    <img src="1781596504206_2.png" alt="M Saeed Jan - Web Architect" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105">
                 </div>
             </div>
             
@@ -434,4 +434,114 @@
                     <i class="fab fa-tiktok"></i>
                 </a>
                 <a href="https://www.facebook.com/share/18c5RpADPy/" target="_blank" class="hover:text-blue-500 transition-colors duration-200" title="Facebook Profile">
-                    <i class="fab
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        // DYNAMIC PARTICLES ENGINE
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+        function resizeCanvasSystem() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvasSystem); resizeCanvasSystem();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.4 - 0.2; this.speedY = Math.random() * 0.4 - 0.2;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+            }
+            draw() { ctx.fillStyle = 'rgba(96, 165, 250, 0.2)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        function setupParticles() { particlesArray = []; for (let i = 0; i < 40; i++) particlesArray.push(new Particle()); }
+        setupParticles();
+        function loopParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); } requestAnimationFrame(loopParticles); }
+        loopParticles();
+
+        // THEME CONTROLLER
+        function toggleThemeSystem() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            body.classList.toggle('light-theme');
+            if (body.classList.contains('light-theme')) {
+                icon.className = "fas fa-moon";
+            } else {
+                icon.className = "fas fa-sun";
+            }
+        }
+
+        // TYPING TIMEOUT LAYER
+        const titles = ["Web Developer", "AI Content Creator", "Digital Architect"];
+        let rowIdx = 0, charIdx = 0, isDeleting = false;
+        const targetEl = document.getElementById('typed-text');
+        function typeLoop() {
+            const currentStr = titles[rowIdx];
+            targetEl.textContent = isDeleting ? currentStr.substring(0, charIdx - 1) : currentStr.substring(0, charIdx + 1);
+            charIdx = isDeleting ? charIdx - 1 : charIdx + 1;
+            let dynamicSpeed = isDeleting ? 40 : 100;
+            if (!isDeleting && charIdx === currentStr.length) { dynamicSpeed = 2000; isDeleting = true; }
+            else if (isDeleting && charIdx === 0) { isDeleting = false; rowIdx = (rowIdx + 1) % titles.length; dynamicSpeed = 300; }
+            setTimeout(typeLoop, dynamicSpeed);
+        }
+        document.addEventListener("DOMContentLoaded", typeLoop);
+
+        // MOBILE DRAWER MENU
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // MODAL DATA OBJECTS
+        const repo = {
+            'orylo': { title: "Orylo Premium Global Marketplace", tags: ["React", "Cloud Storage", "Tailwind"], desc: "A multi-vendor premium luxury e-commerce application developed with an integrated transactional cloud architecture and optimized exclusively for worldwide interfaces." },
+            'ahmad-autos': { title: "Ahmad Autos Catalog Setup", tags: ["UX Flow", "JavaScript Engine", "SEO Setup"], desc: "A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda." }
+        };
+        function executeModalLaunch(key) {
+            const item = repo[key]; if(!item) return;
+            document.getElementById('modal-content-area').innerHTML = `
+                <h3 class="text-xl font-bold text-blue-500 mb-2">${item.title}</h3>
+                <p class="dynamic-text text-sm leading-relaxed mb-4">${item.desc}</p>
+                <div class="flex flex-wrap gap-2 mb-4">${item.tags.map(t => `<span class="bg-blue-600/10 border border-blue-500/20 text-blue-500 text-[10px] font-bold px-2 py-1 rounded">${t}</span>`).join('')}</div>
+                <a href="mailto:Lawangenter@gmail.com" class="inline-block bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-blue-700">Live Showcase Setup</a>
+            `;
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.getElementById('project-modal').classList.add('flex');
+        }
+        function closeModalLaunch() { document.getElementById('project-modal').className = "fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md"; }
+
+        // AI BOT LOGIC SYSTEM
+        function toggleBotUIVisibility() {
+            document.getElementById('ai-chat-box').classList.toggle('hidden');
+        }
+        function processBotResponse() {
+            const field = document.getElementById('bot-input-field');
+            const stream = document.getElementById('msg-stream-layer');
+            const userTxt = field.value.trim().toLowerCase(); if(!userTxt) return;
+            
+            stream.innerHTML += `<div class="bg-blue-600 text-white p-2 rounded-xl rounded-tr-none text-xs self-end max-w-[85%]">${field.value}</div>`;
+            field.value = ''; stream.scrollTop = stream.scrollHeight;
+
+            setTimeout(() => {
+                let systemAns = "That falls under my professional scope. Drop a query message at Lawangenter@gmail.com to start structural designs.";
+                if(userTxt.includes('orylo')) systemAns = "Orylo is a luxury multi-vendor e-commerce layout optimized for absolute speed stability analytics.";
+                else if(userTxt.includes('ahmad') || userTxt.includes('auto')) systemAns = "Ahmad Autos tracks specialized motorcycle engine hardware component catalogs based in Charsadda.";
+                
+                stream.innerHTML += `<div class="bg-blue-600/10 border border-blue-500/20 p-2 rounded-xl rounded-tl-none dynamic-text text-xs self-start max-w-[85%]">${systemAns}</div>`;
+                stream.scrollTop = stream.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
+
+
