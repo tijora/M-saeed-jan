@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M Saeed Jan | Portfolio Matrix</title>
+    <title>M Saeed Jan | Premium Portfolio Matrix</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -16,35 +16,46 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+        :root {
+            --bg-primary: #030712;
+            --text-primary: #f3f4f6;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+        .light-theme {
+            --bg-primary: #f8fafc;
+            --text-primary: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --border-color: rgba(15, 23, 42, 0.08);
+        }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #030712; 
-            color: #f3f4f6; 
+            background-color: var(--bg-primary); 
+            color: var(--text-primary); 
             overflow-x: hidden; 
             scroll-behavior: smooth;
+            transition: background-color 0.3s, color 0.3s;
         }
-        /* Glassmorphism Luxury Architecture */
         .glass-card { 
-            background: rgba(15, 23, 42, 0.55); 
+            background: var(--card-bg); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border: 1px solid var(--border-color); 
         }
         .text-gradient { 
             background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #a78bfa 100%); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
         }
-        /* Cinematic Fluid Smooth Floating Effect */
-        .float-animation { 
-            animation: float 6s ease-in-out infinite; 
+        /* Original High-Tech Smooth Animated Vector Floating Effect */
+        .vector-animation { 
+            animation: floatVector 5s ease-in-out infinite; 
         }
-        @keyframes float { 
-            0% { transform: translateY(0px); } 
-            50% { transform: translateY(-12px); } 
-            100% { transform: translateY(0px); } 
+        @keyframes floatVector { 
+            0% { transform: translateY(0px) rotate(0deg); } 
+            50% { transform: translateY(-15px) rotate(2deg); } 
+            100% { transform: translateY(0px) rotate(0deg); } 
         }
-        /* Typing Effect Cursor */
         .typing-cursor::after {
             content: '|';
             animation: blink 0.7s infinite;
@@ -52,15 +63,6 @@
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
-        }
-        @media (min-width: 768px) {
-            .card-3d {
-                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), border-color 0.3s;
-            }
-            .card-3d:hover {
-                transform: translateY(-8px);
-                border-color: rgba(59, 130, 246, 0.3);
-            }
         }
         #particle-canvas {
             position: absolute;
@@ -75,7 +77,7 @@
 </head>
 <body class="bg-[#030712]">
 
-    <header class="fixed top-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-slate-900/80">
+    <header class="fixed top-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-slate-900/80 transition-all">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">M SAEED JAN</a>
             
@@ -89,6 +91,9 @@
             </nav>
 
             <div class="flex items-center space-x-4">
+                <button onclick="toggleThemeSystem()" class="text-slate-400 hover:text-blue-400 text-lg transition-all p-2 rounded-full glass-card">
+                    <i id="theme-icon" class="fas fa-sun"></i>
+                </button>
                 <a href="#contact" class="hidden sm:inline-block bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-blue-600/20">Hire Me</a>
                 <button id="menu-btn" class="md:hidden text-2xl text-slate-400 hover:text-white transition-all">
                     <i class="fas fa-bars"></i>
@@ -125,22 +130,50 @@
                 </p>
                 
                 <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
-                    <a href="https://youtube.com/@isaeedjan?si=M-ZeNyofbbROioEm" target="_blank" class="glass-card card-3d p-3 rounded-xl flex items-center justify-center gap-2.5 text-sm font-medium hover:text-red-500 text-slate-300">
+                    <a href="https://youtube.com/@isaeedjan?si=M-ZeNyofbbROioEm" target="_blank" class="glass-card p-3 rounded-xl flex items-center justify-center gap-2.5 text-sm font-medium hover:text-red-500 transition-all text-slate-300">
                         <i class="fab fa-youtube text-red-500 text-lg"></i> YouTube
                     </a>
-                    <a href="https://www.tiktok.com/@msaeedj?_r=1&_d=e8095bghf5igjj&sec_uid=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&share_author_id=6712290561837761542&sharer_language=en&source=h5_m&u_code=d76gjk47l5kh8h&timestamp=1781589212&user_id=6712290561837761542&sec_user_id=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7649613767899023122&share_link_id=f47e071e-1e0a-4f33-ac59-daf3ebecaab4&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" class="glass-card card-3d p-3 rounded-xl flex items-center justify-center gap-2.5 text-sm font-medium hover:text-white text-slate-300">
+                    <a href="https://www.tiktok.com/@msaeedj?_r=1&_d=e8095bghf5igjj&sec_uid=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&share_author_id=6712290561837761542&sharer_language=en&source=h5_m&u_code=d76gjk47l5kh8h&timestamp=1781589212&user_id=6712290561837761542&sec_user_id=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7649613767899023122&share_link_id=f47e071e-1e0a-4f33-ac59-daf3ebecaab4&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" class="glass-card p-3 rounded-xl flex items-center justify-center gap-2.5 text-sm font-medium hover:text-white transition-all text-slate-300">
                         <i class="fab fa-tiktok text-slate-200 text-lg"></i> TikTok
                     </a>
-                    <a href="https://www.facebook.com/share/18c5RpADPy/" target="_blank" class="glass-card card-3d p-3 rounded-xl flex items-center justify-center gap-2.5 text-sm font-medium hover:text-blue-500 text-slate-300">
+                    <a href="https://www.facebook.com/share/18c5RpADPy/" target="_blank" class="glass-card p-3 rounded-xl flex items-center justify-center gap-2.5 text-sm font-medium hover:text-blue-500 transition-all text-slate-300">
                         <i class="fab fa-facebook-f text-blue-500 text-base"></i> Facebook
                     </a>
                 </div>
             </div>
             
             <div class="md:col-span-5 flex justify-center items-center" data-aos="zoom-in" data-aos-duration="1200">
-                <div class="relative max-w-full">
-                    <div class="absolute w-72 h-72 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
-                    <img id="hero-img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" class="w-72 h-72 md:w-96 md:h-96 object-cover rounded-2xl border border-slate-800 shadow-2xl shadow-blue-500/10 float-animation" alt="Real High Tech Cyber Workspace Presentation">
+                <div class="relative vector-animation">
+                    <div class="absolute inset-0 bg-blue-500/20 rounded-full filter blur-3xl opacity-40"></div>
+                    <svg width="340" height="340" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-72 h-72 md:w-86 md:h-86">
+                        <circle cx="100" cy="100" r="80" stroke="url(#paint0_linear)" stroke-width="2" stroke-dasharray="4 4" />
+                        <circle cx="100" cy="100" r="60" stroke="url(#paint1_linear)" stroke-width="1" />
+                        <path d="M60 70L100 40L140 70L140 130L100 160L60 130Z" stroke="url(#paint2_gradient)" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M100 40V160" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1"/>
+                        <path d="M60 130L140 70" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1"/>
+                        <path d="M60 70L140 130" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
+                        <circle cx="100" cy="40" r="4" fill="#60a5fa" />
+                        <circle cx="140" cy="70" r="4" fill="#a78bfa" />
+                        <circle cx="140" cy="130" r="4" fill="#3b82f6" />
+                        <circle cx="100" cy="160" r="4" fill="#60a5fa" />
+                        <circle cx="60" cy="130" r="4" fill="#a78bfa" />
+                        <circle cx="60" cy="70" r="4" fill="#3b82f6" />
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="20" y1="20" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#3b82f6"/>
+                                <stop offset="1" stop-color="#a78bfa"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear" x1="40" y1="40" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#a78bfa" stop-opacity="0.5"/>
+                                <stop offset="1" stop-color="#3b82f6" stop-opacity="0.2"/>
+                            </linearGradient>
+                            <linearGradient id="paint2_gradient" x1="60" y1="40" x2="140" y2="160" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#3b82f6"/>
+                                <stop offset="0.5" stop-color="#60a5fa"/>
+                                <stop offset="1" stop-color="#a78bfa"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
                 </div>
             </div>
             
@@ -148,7 +181,7 @@
     </section>
 
     <section id="about" class="py-24 px-6 bg-slate-950/40 border-y border-slate-900/80">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">About Me</h2>
             <div class="w-16 h-1 bg-blue-500 mx-auto mb-10 rounded-full"></div>
             <div class="glass-card p-8 md:p-10 rounded-2xl text-left shadow-xl">
@@ -169,107 +202,79 @@
         </div>
         
         <div class="grid md:grid-cols-2 gap-8">
-            <div onclick="openProjectModal('orylo')" class="glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 card-3d cursor-pointer" data-aos="fade-right">
+            <div onclick="executeModalLaunch('orylo')" class="glass-card rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 cursor-pointer transform hover:-translate-y-2" data-aos="fade-right">
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xs font-bold px-3 py-1 bg-blue-950 text-blue-400 border border-blue-900/50 rounded-full">Marketplace Platform</span>
-                        <div class="text-blue-500 text-xs font-medium">Click to Quick-View &rarr;</div>
+                        <div class="text-blue-500 text-xs font-semibold tracking-wider">Quick-View &rarr;</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Orylo</h3>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Orylo</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">A multi-vendor premium luxury e-commerce application developed with an integrated transactional cloud architecture and optimized exclusively for worldwide interfaces.</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
                     <span class="text-[10px] font-semibold bg-slate-900 px-2.5 py-1 rounded text-slate-400 border border-slate-800">React</span>
                     <span class="text-[10px] font-semibold bg-slate-900 px-2.5 py-1 rounded text-slate-400 border border-slate-800">Tailwind CSS</span>
-                    <span class="text-[10px] font-semibold bg-slate-900 px-2.5 py-1 rounded text-slate-400 border border-slate-800">Supabase</span>
                 </div>
             </div>
 
-            <div onclick="openProjectModal('ahmad-autos')" class="glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 card-3d cursor-pointer" data-aos="fade-left">
+            <div onclick="executeModalLaunch('ahmad-autos')" class="glass-card rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 cursor-pointer transform hover:-translate-y-2" data-aos="fade-left">
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xs font-bold px-3 py-1 bg-purple-950 text-purple-400 border border-purple-900/50 rounded-full">Automotive Business Layout</span>
-                        <div class="text-blue-500 text-xs font-medium">Click to Quick-View &rarr;</div>
+                        <div class="text-blue-500 text-xs font-semibold tracking-wider">Quick-View &rarr;</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Ahmad Autos</h3>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Ahmad Autos</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda.</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
                     <span class="text-[10px] font-semibold bg-slate-900 px-2.5 py-1 rounded text-slate-400 border border-slate-800">Clean Interface</span>
                     <span class="text-[10px] font-semibold bg-slate-900 px-2.5 py-1 rounded text-slate-400 border border-slate-800">Dynamic Filtering</span>
-                    <span class="text-[10px] font-semibold bg-slate-900 px-2.5 py-1 rounded text-slate-400 border border-slate-800">SEO Infrastructure</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="history" class="py-24 px-6 relative bg-slate-950/20 border-t border-slate-900/60">
+    <section id="history" class="py-24 px-6 bg-slate-950/20 border-t border-slate-900/60">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Professional Journey</h2>
-                <p class="text-slate-500 text-sm">Milestones tracking background parameters and evolution</p>
             </div>
-
             <div class="relative border-l-2 border-slate-900 ml-4 md:ml-32 space-y-12">
-                <div class="relative pl-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative pl-8" data-aos="fade-up">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-blue-500 rounded-full ring-4 ring-[#030712]"></div>
-                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-950/50 px-3 py-1 rounded-full border border-blue-900/50">1995</span>
-                    <h3 class="text-lg font-bold mt-3 text-slate-200">The Genesis</h3>
-                    <p class="text-slate-400 mt-2 text-sm leading-relaxed">
-                        Born in 1995. Early exposure to automated systems and microcomputer design parameters sparked an enduring interest in engineering logic and software application spaces.
-                    </p>
+                    <span class="text-xs font-bold text-blue-400 uppercase bg-blue-950/50 px-3 py-1 rounded-full border border-blue-900/50">1995</span>
+                    <h3 class="text-lg font-bold mt-3">The Genesis</h3>
+                    <p class="text-slate-400 mt-2 text-sm">Born in 1995. Early exposure to automated systems sparked an enduring interest in engineering logic and software application spaces.</p>
                 </div>
-
-                <div class="relative pl-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative pl-8" data-aos="fade-up">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-purple-500 rounded-full ring-4 ring-[#030712]"></div>
-                    <span class="text-xs font-bold text-purple-400 uppercase tracking-widest bg-purple-950/50 px-3 py-1 rounded-full border border-purple-900/50">Location Parameters</span>
-                    <h3 class="text-lg font-bold mt-3 text-slate-200">District Charsadda, KPK</h3>
-                    <p class="text-slate-400 mt-2 text-sm leading-relaxed">
-                        Operating from District Charsadda, Khyber Pakhtunkhwa. Engineering advanced modern layout components and delivering clean architectural platforms for international clients globally.
-                    </p>
-                </div>
-
-                <div class="relative pl-8" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-blue-500 rounded-full ring-4 ring-[#030712]"></div>
-                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-950/50 px-3 py-1 rounded-full border border-blue-900/50">Active Scope</span>
-                    <h3 class="text-lg font-bold mt-3 text-slate-200">Web Developer & AI Specialist</h3>
-                    <p class="text-slate-400 mt-2 text-sm leading-relaxed">
-                        Currently deploying responsive, scalable code databases alongside managing high-tier streaming content loops fueled by automated generative systems networks.
-                    </p>
+                    <span class="text-xs font-bold text-purple-400 uppercase bg-purple-950/50 px-3 py-1 rounded-full border border-purple-900/50">Location</span>
+                    <h3 class="text-lg font-bold mt-3">District Charsadda, KPK</h3>
+                    <p class="text-slate-400 mt-2 text-sm">Operating from District Charsadda, Khyber Pakhtunkhwa. Delivering clean architectural platforms globally.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto border-t border-slate-900/60">
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto border-t border-slate-900/60 relative">
         <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Core Competencies</h2>
-            <p class="text-slate-500 text-sm">Professional services offered to clean platform ventures</p>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass-card p-6 md:p-8 rounded-2xl text-center card-3d" data-aos="flip-left" data-aos-delay="100">
-                <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-400 text-xl mx-auto mb-6 border border-blue-900/30">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3 text-slate-200">Web Engineering</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Deploying optimized layout templates, responsive styling hooks, and fast frontend frameworks ensuring optimal application execution speed.</p>
+        <div class="grid md:grid-cols-3 gap-8 relative z-10">
+            <div class="glass-card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-400 text-xl mx-auto mb-6 border border-blue-900/30"><i class="fas fa-code"></i></div>
+                <h3 class="text-lg font-bold mb-3">Web Engineering</h3>
+                <p class="text-slate-400 text-sm">Deploying optimized layout templates, responsive styling hooks, and fast frontend frameworks ensuring speed execution.</p>
             </div>
-            
-            <div class="glass-card p-6 md:p-8 rounded-2xl text-center card-3d" data-aos="flip-left" data-aos-delay="200">
-                <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center text-purple-400 text-xl mx-auto mb-6 border border-purple-900/30">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3 text-slate-200">AI Automation</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Integrating neural platform assets to automate custom tracking, scripting layouts, and generating highly tailored social vector algorithms.</p>
+            <div class="glass-card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center text-purple-400 text-xl mx-auto mb-6 border border-purple-900/30"><i class="fas fa-robot"></i></div>
+                <h3 class="text-lg font-bold mb-3">AI Automation</h3>
+                <p class="text-slate-400 text-sm">Integrating neural assets to automate custom flows, scripting layouts, and generating highly tailored social vectors.</p>
             </div>
-            
-            <div class="glass-card p-6 md:p-8 rounded-2xl text-center card-3d" data-aos="flip-left" data-aos-delay="300">
-                <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-400 text-xl mx-auto mb-6 border border-blue-900/30">
-                    <i class="fas fa-cubes"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3 text-slate-200">Premium UX Control</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Implementing dynamic hover layers, clean floating elements, and beautiful typographic weights to drive continuous user conversion.</p>
+            <div class="glass-card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-400 text-xl mx-auto mb-6 border border-blue-900/30"><i class="fas fa-cubes"></i></div>
+                <h3 class="text-lg font-bold mb-3">Premium UX Control</h3>
+                <p class="text-slate-400 text-sm">Implementing dynamic hover layers, clean floating elements, and beautiful typographic weights to drive user retention.</p>
             </div>
         </div>
     </section>
@@ -277,49 +282,47 @@
     <section id="contact" class="py-24 px-6 text-center max-w-4xl mx-auto" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Let's Connect</h2>
         <div class="w-16 h-1 bg-blue-500 mx-auto mb-8 rounded-full"></div>
-        <p class="text-slate-400 max-w-md mx-auto mb-8 text-sm md:text-base">In need of custom application scripting or multi-vendor framework deployment? Initiate contact via click.</p>
-        <a href="mailto:Lawangenter@gmail.com" class="text-lg md:text-2xl text-blue-400 font-bold border-b-2 border-blue-500/30 hover:border-blue-400 hover:text-blue-300 transition-all pb-1 tracking-wide">
+        <a href="mailto:Lawangenter@gmail.com" class="text-lg md:text-2xl text-blue-400 font-bold border-b-2 border-blue-500/30 hover:border-blue-400 pb-1 tracking-wide transition-all">
             Lawangenter@gmail.com
         </a>
     </section>
 
     <div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-        <div class="glass-card max-w-2xl w-full rounded-3xl p-6 md:p-8 relative shadow-2xl border border-slate-800 animate-zoomIn">
-            <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl transition-all">
+        <div class="glass-card max-w-xl w-full rounded-3xl p-6 md:p-8 relative shadow-2xl border border-slate-800 scale-95 transition-all duration-300">
+            <button onclick="closeModalLaunch()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl transition-all">
                 <i class="fas fa-times"></i>
             </button>
-            <div id="modal-content">
-                </div>
+            <div id="modal-content-area" class="text-left"></div>
         </div>
     </div>
 
-    <div class="fixed bottom-6 right-6 z-[90]">
-        <button id="ai-trigger" class="w-14 h-14 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl shadow-blue-600/30 hover:scale-105 transition-all duration-300">
-            <i id="ai-icon" class="fas fa-times text-xl"></i>
-        </button>
-
-        <div id="ai-chat-window" class="absolute bottom-18 right-0 w-80 md:w-96 glass-card border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300">
+    <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-end">
+        <div id="ai-chat-box" class="w-80 md:w-96 glass-card border border-blue-500/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-3 transition-all duration-300 transform origin-bottom-right">
             <div class="bg-slate-900/90 p-4 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
-                    <h4 class="text-sm font-bold tracking-wide">Saeed's AI Agent</h4>
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <h4 class="text-sm font-bold tracking-wide text-white">Saeed's Intelligent AI Agent</h4>
                 </div>
-                <span class="text-[10px] uppercase tracking-widest text-blue-400 font-bold px-2 py-0.5 bg-blue-950/60 rounded border border-blue-900/40">Active</span>
+                <button onclick="toggleBotUIVisibility()" class="text-slate-400 hover:text-white text-xs"><i class="fas fa-minus"></i></button>
             </div>
             
-            <div id="chat-stream-field" class="h-64 p-4 overflow-y-auto space-y-3 text-xs flex flex-col">
+            <div id="msg-stream-layer" class="h-60 p-4 overflow-y-auto space-y-3 text-xs flex flex-col bg-[#030712]/90">
                 <div class="bg-blue-600/10 border border-blue-900/30 p-3 rounded-xl rounded-tl-none text-slate-300 self-start max-w-[85%] leading-relaxed">
-                    Hello! I am M Saeed Jan's automated AI assistant. How can I help you transform your business or deploy specialized frameworks today?
+                    Hello! I am M Saeed Jan's custom automated agent. Ask me about **Orylo**, **Ahmad Autos**, or how we can automate your workflow metrics!
                 </div>
             </div>
 
-            <div class="p-3 border-t border-slate-900 bg-slate-950/60 flex gap-2">
-                <input type="text" id="ai-input" placeholder="Ask about Orylo, Ahmad Autos..." class="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-blue-500 transition-all text-slate-200">
-                <button id="ai-send-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">
+            <div class="p-3 border-t border-slate-900 bg-slate-950/80 flex gap-2">
+                <input type="text" id="bot-input-field" placeholder="Ask about architecture, systems..." class="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-blue-500 text-slate-200">
+                <button onclick="processBotResponse()" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-xs font-semibold transition-all">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
         </div>
+
+        <button onclick="toggleBotUIVisibility()" class="w-14 h-14 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl shadow-blue-600/40 hover:scale-105 transition-all">
+            <i id="bot-bubble-icon" class="fas fa-robot text-xl"></i>
+        </button>
     </div>
 
     <footer class="py-8 text-center border-t border-slate-900/80 text-slate-500 text-xs">
@@ -330,181 +333,103 @@
     <script>
         AOS.init({ once: true });
 
-        // DYNAMIC PARTICLE MATRIX CANVAS ENGINE
+        // DYNAMIC PARTICLES GRAPHIC MATRIX CANVAS ENGINE
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        function resizeCanvasSystem() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvasSystem); resizeCanvasSystem();
 
         class Particle {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = Math.random() * 0.4 - 0.2;
-                this.speedY = Math.random() * 0.4 - 0.2;
+                this.speedX = Math.random() * 0.4 - 0.2; this.speedY = Math.random() * 0.4 - 0.2;
             }
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
+                this.x += this.speedX; this.y += this.speedY;
                 if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
                 if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
             }
-            draw() {
-                ctx.fillStyle = 'rgba(96, 165, 250, 0.2)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            draw() { ctx.fillStyle = 'rgba(96, 165, 250, 0.2)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
         }
+        function setupParticles() { particlesArray = []; for (let i = 0; i < 40; i++) particlesArray.push(new Particle()); }
+        setupParticles();
+        function loopParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); } requestAnimationFrame(loopParticles); }
+        loopParticles();
 
-        function initParticles() {
-            particlesArray = [];
-            for (let i = 0; i < 45; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-        initParticles();
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // FLUID TYPING LOOP LOGIC SYSTEM
-        const engineeringRoles = ["Web Developer", "AI Content Creator", "Digital Architect"];
-        let coreIndex = 0;
-        let charPointer = 0;
-        let reverseTypingState = false;
-        const textTarget = document.getElementById('typed-text');
-
-        function executeTypingLoop() {
-            const analyticalString = engineeringRoles[coreIndex];
-            if (reverseTypingState) {
-                textTarget.textContent = analyticalString.substring(0, charPointer - 1);
-                charPointer--;
+        // LIGHT / DARK MINIMALIST PERSONALIZATION SYSTEM
+        function toggleThemeSystem() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            body.classList.toggle('light-theme');
+            if (body.classList.contains('light-theme')) {
+                icon.className = "fas fa-moon";
             } else {
-                textTarget.textContent = analyticalString.substring(0, charPointer + 1);
-                charPointer++;
+                icon.className = "fas fa-sun";
             }
-
-            let processingSpeed = reverseTypingState ? 50 : 120;
-            if (!reverseTypingState && charPointer === analyticalString.length) {
-                processingSpeed = 2000;
-                reverseTypingState = true;
-            } else if (reverseTypingState && charPointer === 0) {
-                reverseTypingState = false;
-                coreIndex = (coreIndex + 1) % engineeringRoles.length;
-                processingSpeed = 400;
-            }
-            setTimeout(executeTypingLoop, processingSpeed);
         }
-        document.addEventListener("DOMContentLoaded", executeTypingLoop);
 
-        // RESPONSIVE NAVIGATION MOBILE CONTROLLER
-        const menuToggler = document.getElementById('menu-btn');
-        const mobileContainer = document.getElementById('mobile-menu');
-        menuToggler.addEventListener('click', () => mobileContainer.classList.toggle('hidden'));
+        // TYPING ANIMATION LAYER MATRIX
+        const titles = ["Web Developer", "AI Content Creator", "Digital Architect"];
+        let rowIdx = 0, charIdx = 0, isDeleting = false;
+        const targetEl = document.getElementById('typed-text');
+        function typeLoop() {
+            const currentStr = titles[rowIdx];
+            targetEl.textContent = isDeleting ? currentStr.substring(0, charIdx - 1) : currentStr.substring(0, charIdx + 1);
+            charIdx = isDeleting ? charIdx - 1 : charIdx + 1;
+            let dynamicSpeed = isDeleting ? 40 : 100;
+            if (!isDeleting && charIdx === currentStr.length) { dynamicSpeed = 2000; isDeleting = true; }
+            else if (isDeleting && charIdx === 0) { isDeleting = false; rowIdx = (rowIdx + 1) % titles.length; dynamicSpeed = 300; }
+            setTimeout(typeLoop, dynamicSpeed);
+        }
+        document.addEventListener("DOMContentLoaded", typeLoop);
 
-        // PROJECT QUICK-VIEW POPUP SYSTEM DATA ROUTER
-        const projectRepository = {
-            'orylo': {
-                title: "Orylo Premium Global Marketplace",
-                category: "E-Commerce Architecture Platform",
-                desc: "Orylo is a luxury multi-vendor ecosystem optimized for absolute structural load performance. It strips linguistic restrictions, implementing secure role assignment, relational database scaling for merchant listings, and specialized frontend speed indexes tailored for high conversion rates.",
-                techStack: ["React.js", "Tailwind CSS", "Supabase Backend", "GitHub CI/CD Pipelines"],
-                link: "https://github.com"
-            },
-            'ahmad-autos': {
-                title: "Ahmad Autos Catalog Interface",
-                category: "Commercial Digital Catalog Web App",
-                desc: "Engineered cleanly for high speed parts tracking. This platform tracks specialized fields such as custom lighting profiles and motorcycle hardware components, optimizing inventory querying workflows and localized database indexing architecture.",
-                techStack: ["Tailwind UI", "Vanilla JavaScript Engine", "Supabase Storage Layers"],
-                link: "mailto:Lawangenter@gmail.com"
-            }
+        // MOBILE REPOSITORY INTERACTION
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // PROJECT QUICK-VIEW CONTROLLER DATABANK
+        const repo = {
+            'orylo': { title: "Orylo Premium Global Marketplace", tags: ["React", "Cloud Storage", "Tailwind"], desc: "A multi-vendor premium luxury e-commerce application developed with an integrated transactional cloud architecture and optimized exclusively for worldwide interfaces." },
+            'ahmad-autos': { title: "Ahmad Autos Catalog Setup", tags: ["UX Flow", "JavaScript Engine", "SEO Setup"], desc: "A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda." }
         };
-
-        function openProjectModal(key) {
-            const data = projectRepository[key];
-            if (!data) return;
-            const target = document.getElementById('modal-content');
-            
-            target.innerHTML = `
-                <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-950/50 px-3 py-1 rounded border border-blue-900/40 inline-block mb-3">${data.category}</span>
-                <h3 class="text-2xl font-extrabold text-white mb-4 tracking-tight">${data.title}</h3>
-                <p class="text-slate-300 text-sm leading-relaxed mb-6">${data.desc}</p>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Technologies Deployed:</h4>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    ${data.techStack.map(t => `<span class="text-[10px] font-bold bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-400">${t}</span>`).join('')}
-                </div>
-                <div class="flex gap-3">
-                    <a href="${data.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-lg shadow-blue-600/10">Access Interface</a>
-                    <button onclick="closeProjectModal()" class="glass-card hover:bg-slate-800/40 px-6 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-all">Close</button>
-                </div>
+        function executeModalLaunch(key) {
+            const item = repo[key]; if(!item) return;
+            document.getElementById('modal-content-area').innerHTML = `
+                <h3 class="text-xl font-bold text-blue-400 mb-2">${item.title}</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">${item.desc}</p>
+                <div class="flex flex-wrap gap-2 mb-4">${item.tags.map(t => `<span class="bg-slate-900 text-slate-400 text-[10px] font-bold px-2 py-1 rounded border border-slate-800">${t}</span>`).join('')}</div>
+                <a href="mailto:Lawangenter@gmail.com" class="inline-block bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-lg">Live Showcase Setup</a>
             `;
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.getElementById('project-modal').classList.add('flex');
+        }
+        function closeModalLaunch() { document.getElementById('project-modal').className = "fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md"; }
+
+        // LIVE EXPANDED VISIBLE CHATBOT ARCHITECTURE
+        function toggleBotUIVisibility() {
+            const chatWin = document.getElementById('ai-chat-box');
+            chatWin.classList.toggle('hidden');
+        }
+        function processBotResponse() {
+            const field = document.getElementById('bot-input-field');
+            const stream = document.getElementById('msg-stream-layer');
+            const userTxt = field.value.trim().toLowerCase(); if(!userTxt) return;
             
-            const modal = document.getElementById('project-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('project-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        // CONVERSATIONAL AI INTELLIGENT BOT CHAT CONTROLLER
-        const trigger = document.getElementById('ai-trigger');
-        const windowBox = document.getElementById('ai-chat-window');
-        const aiIcon = document.getElementById('ai-icon');
-        const field = document.getElementById('chat-stream-field');
-        const input = document.getElementById('ai-input');
-        const sendBtn = document.getElementById('ai-send-btn');
-
-        trigger.addEventListener('click', () => {
-            windowBox.classList.toggle('hidden');
-            aiIcon.classList.toggle('fa-robot');
-            aiIcon.classList.toggle('fa-times');
-        });
-
-        function handleCustomAiResponse() {
-            const text = input.value.trim().toLowerCase();
-            if(!text) return;
-
-            field.innerHTML += `<div class="bg-slate-800 p-3 rounded-xl rounded-tr-none text-slate-200 self-end max-w-[85%] leading-relaxed">${input.value}</div>`;
-            input.value = '';
-            field.scrollTop = field.scrollHeight;
+            stream.innerHTML += `<div class="bg-slate-800 p-2 rounded-xl rounded-tr-none text-slate-200 self-end max-w-[85%]">${field.value}</div>`;
+            field.value = ''; stream.scrollTop = stream.scrollHeight;
 
             setTimeout(() => {
-                let botMsg = "That falls directly under my system engineering scope! Please drop me a direct mail query at Lawangenter@gmail.com to outline parameters.";
+                let systemAns = "That falls under my professional scope. Drop a query message at Lawangenter@gmail.com to start structural designs.";
+                if(userTxt.includes('orylo')) systemAns = "Orylo is a luxury multi-vendor ecosystem optimized for absolute structural cloud load and transactional speed analytics.";
+                else if(userTxt.includes('ahmad') || userTxt.includes('auto')) systemAns = "Ahmad Autos tracks motorcycle engine profiles and component hardware datasets based out of Charsadda.";
                 
-                if (text.includes('orylo')) {
-                    botMsg = "Orylo is M Saeed Jan's premium multi-vendor marketplace framework. It implements complex Supabase access structures and global UI setups.";
-                } else if (text.includes('ahmad') || text.includes('auto')) {
-                    botMsg = "Ahmad Autos is an inventory-optimized tracking system engineered for lightning-fast automotive equipment updates based out of Charsadda.";
-                } else if (text.includes('service') || text.includes('work') || text.includes('code')) {
-                    botMsg = "I design advanced premium web layouts, deploy responsive scaling loops, and program deep neural logic setups to track data channels.";
-                }
-
-                field.innerHTML += `<div class="bg-blue-600/10 border border-blue-900/30 p-3 rounded-xl rounded-tl-none text-slate-300 self-start max-w-[85%] leading-relaxed">${botMsg}</div>`;
-                field.scrollTop = field.scrollHeight;
-            }, 700);
+                stream.innerHTML += `<div class="bg-blue-600/10 border border-blue-900/30 p-2 rounded-xl rounded-tl-none text-slate-300 self-start max-w-[85%]">${systemAns}</div>`;
+                stream.scrollTop = stream.scrollHeight;
+            }, 600);
         }
-
-        sendBtn.addEventListener('click', handleCustomAiResponse);
-        input.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleCustomAiResponse(); });
     </script>
 </body>
 </html>
