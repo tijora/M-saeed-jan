@@ -55,7 +55,7 @@
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color); 
-            transition: background 0.3s, border 0.3s;
+            transition: background 0.3s, border 0.3s, transform 0.3s, box-shadow 0.3s;
         }
         .text-gradient { 
             background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #a78bfa 100%); 
@@ -63,7 +63,7 @@
             -webkit-text-fill-color: transparent; 
         }
         
-        /* 3D BLOB MESH SHAPE ANIMATION GENERATOR ENGINE */
+        /* 3D BLOB MESH SHAPE ANIMATION ENGINE */
         @keyframes blobTransform {
             0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: rotate(0deg); }
             33% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; transform: rotate(120deg); }
@@ -72,6 +72,16 @@
         }
         .animate-3d-blob {
             animation: blobTransform 14s infinite linear alternate;
+        }
+        
+        /* CODING LINE FLOATING KEYFRAMES */
+        @keyframes floatLine {
+            0% { transform: translateY(0px); opacity: 0.3; }
+            50% { transform: translateY(-5px); opacity: 0.8; }
+            100% { transform: translateY(0px); opacity: 0.3; }
+        }
+        .code-animate-line {
+            animation: floatLine 3s infinite ease-in-out;
         }
         
         .typing-cursor::after {
@@ -100,18 +110,16 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">M SAEED JAN</a>
             
-            <!-- Desktop Nav System -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium dynamic-subtext">
                 <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
                 <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#tech-stack" class="hover:text-blue-400 transition-colors">Tech Stack</a>
                 <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
                 <a href="#history" class="hover:text-blue-400 transition-colors">History</a>
-                <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
                 <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
             </nav>
 
             <div class="flex items-center space-x-4">
-                <!-- Theme Controller Toggle Button -->
                 <button onclick="toggleThemeSystem()" class="dynamic-text hover:text-blue-400 text-lg transition-all p-2 rounded-full glass-card">
                     <i id="theme-icon" class="fas fa-sun"></i>
                 </button>
@@ -122,25 +130,24 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Container -->
         <div id="mobile-menu" style="background-color: var(--bg-primary);" class="hidden md:hidden border-b border-gray-500/10 absolute w-full left-0 px-6 py-6 flex flex-col space-y-4 text-center dynamic-text font-medium shadow-2xl">
             <a href="#home" class="hover:text-blue-400 transition-colors py-2 border-b border-gray-500/5">Home</a>
             <a href="#about" class="hover:text-blue-400 transition-colors py-2 border-b border-gray-500/5">About</a>
+            <a href="#tech-stack" class="hover:text-blue-400 transition-colors py-2 border-b border-gray-500/5">Tech Stack</a>
             <a href="#projects" class="hover:text-blue-400 transition-colors py-2 border-b border-gray-500/5">Projects</a>
             <a href="#history" class="hover:text-blue-400 transition-colors py-2 border-b border-gray-500/5">History</a>
-            <a href="#services" class="hover:text-blue-400 transition-colors py-2 border-b border-gray-500/5">Services</a>
             <a href="#contact" class="hover:text-blue-400 transition-colors py-2">Contact</a>
         </div>
     </header>
 
-    <!-- HERO SECTION RE-ENGINEERED WITH 3D BLOB AND INTEGRATED PERSONAL GRAPHIC -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 max-w-7xl mx-auto relative overflow-hidden">
+    <!-- HERO SECTION RE-ENGINEERED WITH 20220612_081646.jpg -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-12 px-6 max-w-7xl mx-auto relative overflow-hidden">
         <canvas id="particle-canvas"></canvas>
         <div class="grid md:grid-cols-12 gap-12 items-center w-full relative z-10">
             
-            <!-- Left Side Core Content Panel -->
+            <!-- Left Content Panel -->
             <div class="md:col-span-7 text-center md:text-left flex flex-col items-center md:items-start" data-aos="fade-right" data-aos-duration="1000">
-                <span class="text-blue-400 font-semibold tracking-widest text-xs uppercase bg-blue-950/40 px-4 py-1.5 rounded-full border border-blue-900/40 inline-block mb-4">Web Architect Portfolio</span>
+                <span class="text-blue-400 font-semibold tracking-widest text-xs uppercase bg-blue-950/40 px-4 py-1.5 rounded-full border border-blue-900/40 inline-block mb-4">Web Architect & Creator</span>
                 <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight dynamic-text">
                     Hi, I am <br><span class="text-gradient">M SAEED JAN</span>
                 </h1>
@@ -150,26 +157,136 @@
                 </div>
                 
                 <p class="dynamic-subtext mt-4 max-w-lg leading-relaxed text-sm md:text-base">
-                    Crafting next-generation luxury digital platforms with advanced engineering standards and leveraging Artificial Intelligence to formulate high-impact social content.
+                    Transforming conceptual code logic into high-end luxury platforms. Specializing in advanced UI styling, dynamic system workflows, and scalable engineering modules.
                 </p>
                 
                 <div class="mt-8 flex gap-4 justify-center md:justify-start">
                     <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-blue-600/30 text-sm">Hire Me</a>
-                    <a href="#projects" class="border border-gray-500/30 hover:border-blue-500 dynamic-text px-8 py-3 rounded-full font-bold transition-all text-sm">View Work</a>
+                    <a href="#tech-stack" class="border border-gray-500/30 hover:border-blue-500 dynamic-text px-8 py-3 rounded-full font-bold transition-all text-sm">Explore Stack</a>
                 </div>
             </div>
             
-            <!-- Right Side Complex 3D Blob Image Framework -->
+            <!-- Right Complex Image Container Setup -->
             <div class="md:col-span-5 flex justify-center items-center relative" data-aos="zoom-in" data-aos-duration="1200">
-                <!-- Glowing Interactive 3D Blob Vector Backdrop -->
-                <div class="absolute w-72 h-72 sm:w-86 sm:h-86 md:w-96 md:h-96 bg-gradient-to-tr from-blue-500/30 to-purple-600/30 animate-3d-blob opacity-70 filter blur-2xl"></div>
+                <div class="absolute w-72 h-72 sm:w-86 sm:h-86 md:w-96 md:h-96 bg-gradient-to-tr from-blue-500/20 to-indigo-600/20 animate-3d-blob opacity-70 filter blur-2xl"></div>
                 
-                <!-- Foreground Image Framed Node Wrapper -->
-                <div class="relative z-10 w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm bg-white/5">
-                    <img src="IMG-20220314-WA0016.jpg" alt="M Saeed Jan Developer Frame" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                <div class="relative z-10 w-72 h-96 sm:w-80 sm:h-[440px] md:w-[360px] md:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm bg-white/5">
+                    <!-- TARGET IMAGE INTERFACED CORRECTLY -->
+                    <img src="20220612_081646.jpg" alt="M Saeed Jan - Web Architect" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105">
                 </div>
             </div>
             
+        </div>
+    </section>
+
+    <!-- NEW 10 ANIMATED TECH INTERFACE CARDS GRID GRID GRID -->
+    <section id="tech-stack" class="py-20 px-6 max-w-7xl mx-auto border-t border-gray-500/10">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight dynamic-text">System Integration Stack</h2>
+            <p class="dynamic-subtext text-sm">10 Core architectural matrices rendering high performance looks</p>
+            <div class="w-16 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Card 1 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+                <div>
+                    <div class="text-blue-500 text-2xl mb-4"><i class="fas fa-terminal"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">01. Code Core</h3>
+                    <div class="text-[11px] text-emerald-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">const app = init();</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Clean architecture scripts optimized for high structural execution paths.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="text-indigo-400 text-2xl mb-4"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">02. Luxury UI</h3>
+                    <div class="text-[11px] text-blue-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">backdrop-blur: 12px;</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Premium glassmorphism variables combined with dynamic neon glow layers.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
+                <div>
+                    <div class="text-purple-400 text-2xl mb-4"><i class="fas fa-database"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">03. Database Flow</h3>
+                    <div class="text-[11px] text-purple-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">SELECT * FROM users;</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Fast relational storage and Row Level Security structures.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">04. Async APIs</h3>
+                    <div class="text-[11px] text-amber-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">fetch('/api/v1/sync');</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Asynchronous link layers processing system interactions without latency.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="250">
+                <div>
+                    <div class="text-cyan-400 text-2xl mb-4"><i class="fas fa-cubes"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">05. Vercel Edge</h3>
+                    <div class="text-[11px] text-cyan-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">npm run build --prod</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Global deployment infrastructures ensuring asset loads are served immediately.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <div class="text-amber-400 text-2xl mb-4"><i class="fas fa-robot"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">06. AI Integration</h3>
+                    <div class="text-[11px] text-pink-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">model.predict(vectors);</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Deploying automated script generators and conversational engine routing.</p>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="350">
+                <div>
+                    <div class="text-pink-400 text-2xl mb-4"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">07. Fluid Grid</h3>
+                    <div class="text-[11px] text-indigo-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">@media(max-width:768px)</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Absolute precision response rendering on all view screens instantly.</p>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <div class="text-emerald-400 text-2xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">08. Safe Policies</h3>
+                    <div class="text-[11px] text-emerald-500 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">CREATE POLICY row_rls;</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Bulletproof security headers defending user access layers accurately.</p>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="450">
+                <div>
+                    <div class="text-red-400 text-2xl mb-4"><i class="fas fa-gauge-high"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">09. Turbo Speed</h3>
+                    <div class="text-[11px] text-red-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">lighthouse_score: 100;</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Aggressive asset minimization achieving perfect operational performance scores.</p>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
+                <div>
+                    <div class="text-teal-400 text-2xl mb-4"><i class="fas fa-code-branch"></i></div>
+                    <h3 class="font-bold text-sm mb-2 dynamic-text">10. Git Ecosystem</h3>
+                    <div class="text-[11px] text-teal-400 font-mono mb-3 bg-black/30 p-1.5 rounded code-animate-line">git commit -m "deploy"</div>
+                </div>
+                <p class="dynamic-subtext text-xs leading-relaxed">Version-tracked source management pipelines guaranteeing data continuity.</p>
+            </div>
         </div>
     </section>
 
@@ -221,7 +338,7 @@
                         <div class="text-blue-500 text-xs font-semibold tracking-wider">Quick-View &rarr;</div>
                     </div>
                     <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors dynamic-text">Ahmad Autos</h3>
-                    <p class="dynamic-subtext text-sm leading-relaxed mb-6">A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda.</p>
+                    <p class="dynamic-subtext text-sm leading-relaxed mb-6">A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda [cite: Ahmad Autos Website Launch: The user developed a digital presence for an automotive parts store based in Gul Abad Pul, Charsadda., The user corrected the branding for the "Ahmad Autos" project, explicitly changing the hero imagery from bicycles to motorcycles to match the business's actual focus on spare parts.].</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
                     <span class="text-[10px] font-semibold bg-purple-600/10 px-2.5 py-1 rounded text-purple-400 border border-purple-500/20">Clean Interface</span>
@@ -254,30 +371,6 @@
         </div>
     </section>
 
-    <!-- CORE COMPETENCIES -->
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto border-t border-gray-500/10 relative">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight dynamic-text">Core Competencies</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8 relative z-10">
-            <div class="glass-card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-all duration-300">
-                <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-400 text-xl mx-auto mb-6 border border-blue-900/30"><i class="fas fa-code"></i></div>
-                <h3 class="text-lg font-bold mb-3 dynamic-text">Web Engineering</h3>
-                <p class="dynamic-subtext text-sm">Deploying optimized layout templates, responsive styling hooks, and fast frontend frameworks ensuring speed execution.</p>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-all duration-300">
-                <div class="w-12 h-12 bg-purple-600/10 rounded-xl flex items-center justify-center text-purple-400 text-xl mx-auto mb-6 border border-purple-900/30"><i class="fas fa-robot"></i></div>
-                <h3 class="text-lg font-bold mb-3 dynamic-text">AI Automation</h3>
-                <p class="dynamic-subtext text-sm">Integrating neural assets to automate custom flows, scripting layouts, and generating highly tailored social vectors.</p>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-all duration-300">
-                <div class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-400 text-xl mx-auto mb-6 border border-blue-900/30"><i class="fas fa-cubes"></i></div>
-                <h3 class="text-lg font-bold mb-3 dynamic-text">Premium UX Control</h3>
-                <p class="dynamic-subtext text-sm">Implementing dynamic hover layers, clean floating elements, and beautiful typographic weights to drive user retention.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- CONTACT AREA -->
     <section id="contact" class="py-24 px-6 text-center max-w-4xl mx-auto" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight dynamic-text">Let's Connect</h2>
@@ -297,10 +390,9 @@
         </div>
     </div>
 
-    <!-- LIVE EXPENDED AI CHATBOT INTERFACE -->
+    <!-- LIVE EXPERT AI CHATBOT INTERFACE -->
     <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-end">
-        <div id="ai-chat-box" class="w-80 md:w-96 glass-card rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-3 transition-all duration-300 transform origin-bottom-right">
-            <!-- Header Group component -->
+        <div id="ai-chat-box" class="w-80 md:w-96 glass-card rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-3 transition-all duration-300 transform origin-bottom-right hidden">
             <div class="p-4 border-b border-gray-500/10 flex items-center justify-between" style="background-color: var(--header-bg);">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
@@ -309,14 +401,12 @@
                 <button onclick="toggleBotUIVisibility()" class="dynamic-subtext hover:text-blue-500 text-xs"><i class="fas fa-minus"></i></button>
             </div>
             
-            <!-- Message Layer Area -->
             <div id="msg-stream-layer" style="background-color: var(--bot-bg);" class="h-60 p-4 overflow-y-auto space-y-3 text-xs flex flex-col">
                 <div class="bg-blue-600/10 border border-blue-500/20 p-3 rounded-xl rounded-tl-none dynamic-text self-start max-w-[85%] leading-relaxed">
                     Hello! I am M Saeed Jan's custom automated agent. Ask me about **Orylo**, **Ahmad Autos**, or how we can automate your workflow metrics!
                 </div>
             </div>
 
-            <!-- Chat input console -->
             <div class="p-3 border-t border-gray-500/10 flex gap-2" style="background-color: var(--header-bg);">
                 <input type="text" id="bot-input-field" placeholder="Ask about architecture, systems..." class="flex-1 bg-gray-500/5 border border-gray-500/20 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-blue-500 dynamic-text">
                 <button onclick="processBotResponse()" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-xs font-semibold transition-all">
@@ -325,18 +415,17 @@
             </div>
         </div>
 
-        <!-- Float Trigger Bubble Component -->
         <button onclick="toggleBotUIVisibility()" class="w-14 h-14 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl shadow-blue-600/40 hover:scale-105 transition-all">
             <i id="bot-bubble-icon" class="fas fa-robot text-xl"></i>
         </button>
     </div>
 
-    <!-- MODERN SYSTEM FOOTER STACK WITH INTEGRATED SOCIAL MEDIA PLATFORMS -->
+    <!-- MODERN SYSTEM FOOTER STACK WITH INTEGRATED SOCIAL MEDIA LINKS -->
     <footer class="py-12 border-t border-gray-500/10 dynamic-subtext text-center bg-slate-500/5">
         <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
             <p class="text-xs">&copy; 2026 M Saeed Jan. All rights reserved. Premium Interface Execution Stack.</p>
             
-            <!-- Shipped Social Matrices Layout -->
+            <!-- Shipped Social Media Grid Component -->
             <div class="flex items-center gap-6 text-lg">
                 <a href="https://youtube.com/@isaeedjan?si=M-ZeNyofbbROioEm" target="_blank" class="hover:text-red-500 transition-colors duration-200" title="YouTube Channel">
                     <i class="fab fa-youtube"></i>
@@ -355,7 +444,7 @@
     <script>
         AOS.init({ once: true });
 
-        // DYNAMIC PARTICLES GRAPHIC MATRIX CANVAS ENGINE
+        // DYNAMIC PARTICLES ENGINE
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
@@ -380,7 +469,7 @@
         function loopParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); } requestAnimationFrame(loopParticles); }
         loopParticles();
 
-        // CONTRAST-FIXED LIGHT / DARK THEME SYSTEM
+        // THEME CONTROLLER
         function toggleThemeSystem() {
             const body = document.body;
             const icon = document.getElementById('theme-icon');
@@ -392,7 +481,7 @@
             }
         }
 
-        // TYPING ANIMATION LAYER MATRIX
+        // TYPING TIMEOUT LAYER
         const titles = ["Web Developer", "AI Content Creator", "Digital Architect"];
         let rowIdx = 0, charIdx = 0, isDeleting = false;
         const targetEl = document.getElementById('typed-text');
@@ -407,12 +496,12 @@
         }
         document.addEventListener("DOMContentLoaded", typeLoop);
 
-        // MOBILE REPOSITORY INTERACTION
+        // MOBILE DRAWER MENU
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        // PROJECT QUICK-VIEW CONTROLLER DATABANK
+        // MODAL DATA OBJECTS
         const repo = {
             'orylo': { title: "Orylo Premium Global Marketplace", tags: ["React", "Cloud Storage", "Tailwind"], desc: "A multi-vendor premium luxury e-commerce application developed with an integrated transactional cloud architecture and optimized exclusively for worldwide interfaces." },
             'ahmad-autos': { title: "Ahmad Autos Catalog Setup", tags: ["UX Flow", "JavaScript Engine", "SEO Setup"], desc: "A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda." }
@@ -430,7 +519,7 @@
         }
         function closeModalLaunch() { document.getElementById('project-modal').className = "fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md"; }
 
-        // LIVE EXPANDED VISIBLE CHATBOT ARCHITECTURE
+        // AI BOT LOGIC SYSTEM
         function toggleBotUIVisibility() {
             document.getElementById('ai-chat-box').classList.toggle('hidden');
         }
@@ -444,8 +533,8 @@
 
             setTimeout(() => {
                 let systemAns = "That falls under my professional scope. Drop a query message at Lawangenter@gmail.com to start structural designs.";
-                if(userTxt.includes('orylo')) systemAns = "Orylo is a luxury multi-vendor ecosystem optimized for absolute structural cloud load and transactional speed analytics.";
-                else if(userTxt.includes('ahmad') || userTxt.includes('auto')) systemAns = "Ahmad Autos tracks motorcycle engine profiles and component hardware datasets based out of Charsadda.";
+                if(userTxt.includes('orylo')) systemAns = "Orylo is a luxury multi-vendor e-commerce layout optimized for absolute speed stability analytics.";
+                else if(userTxt.includes('ahmad') || userTxt.includes('auto')) systemAns = "Ahmad Autos tracks specialized motorcycle engine hardware component catalogs based in Charsadda.";
                 
                 stream.innerHTML += `<div class="bg-blue-600/10 border border-blue-500/20 p-2 rounded-xl rounded-tl-none dynamic-text text-xs self-start max-w-[85%]">${systemAns}</div>`;
                 stream.scrollTop = stream.scrollHeight;
@@ -454,3 +543,4 @@
     </script>
 </body>
 </html>
+
