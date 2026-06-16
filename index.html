@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M Saeed Jan | Portfolio</title>
+    <title>M Saeed Jan | Portfolio Matrix</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -21,6 +21,7 @@
             background-color: #030712; 
             color: #f3f4f6; 
             overflow-x: hidden; 
+            scroll-behavior: smooth;
         }
         /* Glassmorphism Luxury Architecture */
         .glass-card { 
@@ -34,16 +35,16 @@
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
         }
-        /* Futuristic Smooth 3D Image Float */
+        /* Cinematic Fluid Smooth Floating Effect */
         .float-animation { 
             animation: float 6s ease-in-out infinite; 
         }
         @keyframes float { 
-            0% { transform: translateY(0px) rotate(0deg); } 
-            50% { transform: translateY(-15px) rotate(1deg); } 
-            100% { transform: translateY(0px) rotate(0deg); } 
+            0% { transform: translateY(0px); } 
+            50% { transform: translateY(-12px); } 
+            100% { transform: translateY(0px); } 
         }
-        /* Cursor Design for Custom Typing Loop */
+        /* Typing Effect Cursor */
         .typing-cursor::after {
             content: '|';
             animation: blink 0.7s infinite;
@@ -52,7 +53,6 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        /* Desktop Interaction Scaling */
         @media (min-width: 768px) {
             .card-3d {
                 transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), border-color 0.3s;
@@ -61,6 +61,15 @@
                 transform: translateY(-8px);
                 border-color: rgba(59, 130, 246, 0.3);
             }
+        }
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -94,14 +103,14 @@
             <a href="#history" class="hover:text-blue-400 transition-colors py-2 border-b border-slate-900/40">History</a>
             <a href="#services" class="hover:text-blue-400 transition-colors py-2 border-b border-slate-900/40">Services</a>
             <a href="#contact" class="hover:text-blue-400 transition-colors py-2">Contact</a>
-            <a href="#contact" class="sm:hidden bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full text-sm font-semibold transition-all inline-block w-full">Hire Me</a>
         </div>
     </header>
 
-    <section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-12 gap-12 items-center w-full">
+    <section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 max-w-7xl mx-auto relative">
+        <canvas id="particle-canvas"></canvas>
+        <div class="grid md:grid-cols-12 gap-12 items-center w-full relative z-10">
             
-            <div class="md:col-span-7 text-center md:text-left z-10 flex flex-col items-center md:items-start" data-aos="fade-right" data-aos-duration="1000">
+            <div class="md:col-span-7 text-center md:text-left flex flex-col items-center md:items-start" data-aos="fade-right" data-aos-duration="1000">
                 <span class="text-blue-400 font-semibold tracking-widest text-xs uppercase bg-blue-950/40 px-4 py-1.5 rounded-full border border-blue-900/40 inline-block mb-4">Welcome to my Universe</span>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                     Hi, I am <br><span class="text-gradient">M SAEED JAN</span>
@@ -130,8 +139,8 @@
             
             <div class="md:col-span-5 flex justify-center items-center" data-aos="zoom-in" data-aos-duration="1200">
                 <div class="relative max-w-full">
-                    <div class="absolute w-72 h-72 md:w-96 md:h-96 bg-blue-500/5 rounded-full blur-3xl -z-10"></div>
-                    <img id="hero-img" src="" class="w-72 h-72 md:w-96 md:h-96 object-contain float-animation drop-shadow-[0_0_30px_rgba(59,130,246,0.15)]" alt="Dynamic 3D Technical Representation">
+                    <div class="absolute w-72 h-72 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+                    <img id="hero-img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" class="w-72 h-72 md:w-96 md:h-96 object-cover rounded-2xl border border-slate-800 shadow-2xl shadow-blue-500/10 float-animation" alt="Real High Tech Cyber Workspace Presentation">
                 </div>
             </div>
             
@@ -160,11 +169,11 @@
         </div>
         
         <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 card-3d" data-aos="fade-right">
+            <div onclick="openProjectModal('orylo')" class="glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 card-3d cursor-pointer" data-aos="fade-right">
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xs font-bold px-3 py-1 bg-blue-950 text-blue-400 border border-blue-900/50 rounded-full">Marketplace Platform</span>
-                        <div class="text-slate-500 text-xs"><i class="fab fa-github"></i> Global Scale</div>
+                        <div class="text-blue-500 text-xs font-medium">Click to Quick-View &rarr;</div>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Orylo</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">A multi-vendor premium luxury e-commerce application developed with an integrated transactional cloud architecture and optimized exclusively for worldwide interfaces.</p>
@@ -176,11 +185,11 @@
                 </div>
             </div>
 
-            <div class="glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 card-3d" data-aos="fade-left">
+            <div onclick="openProjectModal('ahmad-autos')" class="glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all duration-300 shadow-lg group flex flex-col justify-between p-6 card-3d cursor-pointer" data-aos="fade-left">
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xs font-bold px-3 py-1 bg-purple-950 text-purple-400 border border-purple-900/50 rounded-full">Automotive Business Layout</span>
-                        <div class="text-slate-500 text-xs"><i class="fas fa-check-circle"></i> Live Deployment</div>
+                        <div class="text-blue-500 text-xs font-medium">Click to Quick-View &rarr;</div>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Ahmad Autos</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">A high-performance digital showcase setup tracking detailed component catalogs and inventory systems for motorcycle engine hardware assemblies based in Charsadda.</p>
@@ -274,28 +283,106 @@
         </a>
     </section>
 
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card max-w-2xl w-full rounded-3xl p-6 md:p-8 relative shadow-2xl border border-slate-800 animate-zoomIn">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl transition-all">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-content">
+                </div>
+        </div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-[90]">
+        <button id="ai-trigger" class="w-14 h-14 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl shadow-blue-600/30 hover:scale-105 transition-all duration-300">
+            <i id="ai-icon" class="fas fa-robot text-xl"></i>
+        </button>
+
+        <div id="ai-chat-window" class="hidden absolute bottom-18 right-0 w-80 md:w-96 glass-card border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300">
+            <div class="bg-slate-900/90 p-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
+                    <h4 class="text-sm font-bold tracking-wide">Saeed's AI Agent</h4>
+                </div>
+                <span class="text-[10px] uppercase tracking-widest text-blue-400 font-bold px-2 py-0.5 bg-blue-950/60 rounded border border-blue-900/40">Core V1</span>
+            </div>
+            
+            <div id="chat-stream-field" class="h-64 p-4 overflow-y-auto space-y-3 text-xs flex flex-col">
+                <div class="bg-blue-600/10 border border-blue-900/30 p-3 rounded-xl rounded-tl-none text-slate-300 self-start max-w-[85%] leading-relaxed">
+                    Hello! I am M Saeed Jan's automated AI assistant. How can I help you transform your business or deploy specialized frameworks today?
+                </div>
+            </div>
+
+            <div class="p-3 border-t border-slate-900 bg-slate-950/60 flex gap-2">
+                <input type="text" id="ai-input" placeholder="Ask about Orylo, Ahmad Autos..." class="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-blue-500 transition-all text-slate-200">
+                <button id="ai-send-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <footer class="py-8 text-center border-t border-slate-900/80 text-slate-500 text-xs">
-        <p>&copy; 2026 M Saeed Jan. All rights reserved.</p>
+        <p>&copy; 2026 M Saeed Jan. All rights reserved. Premium Interface Execution Stack.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Start scroll animation hooks
-        AOS.init({
-            once: true
-        });
+        AOS.init({ once: true });
 
-        // Fixed High-Quality 3D Technical Graphics Array for Lifecycle Rendering
-        const stable3DAssets = [
-            "https://cdn-icons-png.flaticon.com/512/3248/3248182.png",
-            "https://cdn-icons-png.flaticon.com/512/2740/2740630.png",
-            "https://cdn-icons-png.flaticon.com/512/3062/3062634.png"
-        ];
+        // DYNAMIC PARTICLE MATRIX CANVAS ENGINE
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
         
-        // Match random pointer on refresh
-        document.getElementById('hero-img').src = stable3DAssets[Math.floor(Math.random() * stable3DAssets.length)];
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
-        // Fluid Typing Loop System Logic
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(96, 165, 250, 0.2)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 45; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // FLUID TYPING LOOP LOGIC SYSTEM
         const engineeringRoles = ["Web Developer", "AI Content Creator", "Digital Architect"];
         let coreIndex = 0;
         let charPointer = 0;
@@ -304,7 +391,6 @@
 
         function executeTypingLoop() {
             const analyticalString = engineeringRoles[coreIndex];
-            
             if (reverseTypingState) {
                 textTarget.textContent = analyticalString.substring(0, charPointer - 1);
                 charPointer--;
@@ -314,39 +400,112 @@
             }
 
             let processingSpeed = reverseTypingState ? 50 : 120;
-
             if (!reverseTypingState && charPointer === analyticalString.length) {
-                processingSpeed = 2000; // Freeze at full string
+                processingSpeed = 2000;
                 reverseTypingState = true;
             } else if (reverseTypingState && charPointer === 0) {
                 reverseTypingState = false;
                 coreIndex = (coreIndex + 1) % engineeringRoles.length;
-                processingSpeed = 400; // Freeze before shifting row
+                processingSpeed = 400;
             }
-
             setTimeout(executeTypingLoop, processingSpeed);
         }
+        document.addEventListener("DOMContentLoaded", executeTypingLoop);
 
-        // Initialize Typing Loop Sequence
-        document.addEventListener("DOMContentLoaded", () => {
-            executeTypingLoop();
-        });
-
-        // Mobile Responsive Toggle Control Handler
+        // RESPONSIVE NAVIGATION MOBILE CONTROLLER
         const menuToggler = document.getElementById('menu-btn');
         const mobileContainer = document.getElementById('mobile-menu');
+        menuToggler.addEventListener('click', () => mobileContainer.classList.toggle('hidden'));
 
-        menuToggler.addEventListener('click', () => {
-            mobileContainer.classList.toggle('hidden');
+        // PROJECT QUICK-VIEW POPUP SYSTEM DATA ROUTER
+        const projectRepository = {
+            'orylo': {
+                title: "Orylo Premium Global Marketplace",
+                category: "E-Commerce Architecture Platform",
+                desc: "Orylo is a luxury multi-vendor ecosystem optimized for absolute structural load performance. It strips linguistic restrictions, implementing secure role assignment, relational database scaling for merchant listings, and specialized frontend speed indexes tailored for high conversion rates.",
+                techStack: ["React.js", "Tailwind CSS", "Supabase Backend", "GitHub CI/CD Pipelines"],
+                link: "https://github.com"
+            },
+            'ahmad-autos': {
+                title: "Ahmad Autos Catalog Interface",
+                category: "Commercial Digital Catalog Web App",
+                desc: "Engineered cleanly for high speed parts tracking. This platform tracks specialized fields such as custom lighting profiles and motorcycle hardware components, optimizing inventory querying workflows and localized database indexing architecture.",
+                techStack: ["Tailwind UI", "Vanilla JavaScript Engine", "Supabase Storage Layers"],
+                link: "mailto:Lawangenter@gmail.com"
+            }
+        };
+
+        function openProjectModal(key) {
+            const data = projectRepository[key];
+            if (!data) return;
+            const target = document.getElementById('modal-content');
+            
+            target.innerHTML = `
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-950/50 px-3 py-1 rounded border border-blue-900/40 inline-block mb-3">${data.category}</span>
+                <h3 class="text-2xl font-extrabold text-white mb-4 tracking-tight">${data.title}</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-6">${data.desc}</p>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Technologies Deployed:</h4>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    ${data.techStack.map(t => `<span class="text-[10px] font-bold bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-400">${t}</span>`).join('')}
+                </div>
+                <div class="flex gap-3">
+                    <a href="${data.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-lg shadow-blue-600/10">Access Interface</a>
+                    <button onclick="closeProjectModal()" class="glass-card hover:bg-slate-800/40 px-6 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-all">Close</button>
+                </div>
+            `;
+            
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // CONVERSATIONAL AI INTELLIGENT BOT CHAT CONTROLLER
+        const trigger = document.getElementById('ai-trigger');
+        const windowBox = document.getElementById('ai-chat-window');
+        const aiIcon = document.getElementById('ai-icon');
+        const field = document.getElementById('chat-stream-field');
+        const input = document.getElementById('ai-input');
+        const sendBtn = document.getElementById('ai-send-btn');
+
+        trigger.addEventListener('click', () => {
+            windowBox.classList.toggle('hidden');
+            aiIcon.classList.toggle('fa-robot');
+            aiIcon.classList.toggle('fa-times');
         });
 
-        // Close dropdown upon interaction select
-        const navigationTargets = mobileContainer.querySelectorAll('a');
-        navigationTargets.forEach(target => {
-            target.addEventListener('click', () => {
-                mobileContainer.classList.add('hidden');
-            });
-        });
+        function handleCustomAiResponse() {
+            const text = input.value.trim().toLowerCase();
+            if(!text) return;
+
+            // Append user context block
+            field.innerHTML += `<div class="bg-slate-800 p-3 rounded-xl rounded-tr-none text-slate-200 self-end max-w-[85%] leading-relaxed">${input.value}</div>`;
+            input.value = '';
+            field.scrollTop = field.scrollHeight;
+
+            setTimeout(() => {
+                let botMsg = "That falls directly under my system engineering scope! Please drop me a direct mail query at Lawangenter@gmail.com to outline parameters.";
+                
+                if (text.includes('orylo')) {
+                    botMsg = "Orylo is M Saeed Jan's premium multi-vendor marketplace framework. It implements complex Supabase access structures and global UI setups.";
+                } else if (text.includes('ahmad') || text.includes('auto')) {
+                    botMsg = "Ahmad Autos is an inventory-optimized tracking system engineered for lightning-fast automotive equipment updates based out of Charsadda.";
+                } else if (text.includes('service') || text.includes('work') || text.includes('code')) {
+                    botMsg = "I design advanced premium web layouts, deploy responsive scaling loops, and program deep neural logic setups to track data channels.";
+                }
+
+                field.innerHTML += `<div class="bg-blue-600/10 border border-blue-900/30 p-3 rounded-xl rounded-tl-none text-slate-300 self-start max-w-[85%] leading-relaxed">${botMsg}</div>`;
+                field.scrollTop = field.scrollHeight;
+            }, 700);
+        }
+
+        sendBtn.addEventListener('click', handleCustomAiResponse);
+        input.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleCustomAiResponse(); });
     </script>
 </body>
 </html>
