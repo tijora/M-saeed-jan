@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M Saeed Jan | Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Plus Jakarta Sans for Premium Look) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -35,18 +31,20 @@
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
             transform-style: preserve-3d;
         }
-        .card-3d:hover {
-            transform: translateY(-10px) rotateX(4deg) rotateY(4deg);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        @media (min-width: 768px) {
+            .card-3d:hover {
+                transform: translateY(-10px) rotateX(4deg) rotateY(4deg);
+                box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVBAR -->
     <header class="fixed top-0 left-0 w-full z-50 bg-[#0b1120]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-extrabold tracking-wider text-blue-500">M SAEED JAN</a>
+            
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
                 <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
                 <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
@@ -54,49 +52,64 @@
                 <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
                 <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
             </nav>
-            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-blue-600/30">Hire Me</a>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="hidden sm:inline-block bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-blue-600/30">Hire Me</a>
+                
+                <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0b1120]/95 border-b border-slate-800 absolute w-full left-0 px-6 py-4 flex flex-col space-y-4 text-center text-slate-300 font-medium">
+            <a href="#home" class="hover:text-blue-400 transition-colors py-2">Home</a>
+            <a href="#about" class="hover:text-blue-400 transition-colors py-2">About</a>
+            <a href="#history" class="hover:text-blue-400 transition-colors py-2">History</a>
+            <a href="#services" class="hover:text-blue-400 transition-colors py-2">Services</a>
+            <a href="#contact" class="hover:text-blue-400 transition-colors py-2">Contact</a>
+            <a href="#contact" class="sm:hidden bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-sm font-semibold transition-all inline-block">Hire Me</a>
         </div>
     </header>
 
-    <!-- HERO SECTION (HOME) -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
-        <!-- Background Decorative Orbs -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-4xl text-center z-10" data-aos="zoom-in-up" data-aos-duration="1200">
-            <span class="text-blue-400 font-semibold tracking-widest text-sm uppercase bg-blue-950/50 px-4 py-1.5 rounded-full border border-blue-900/50">Welcome to my Universe</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold mt-6 tracking-tight leading-tight">
+            <span class="text-blue-400 font-semibold tracking-widest text-xs md:text-sm uppercase bg-blue-950/50 px-4 py-1.5 rounded-full border border-blue-900/50">Welcome to my Universe</span>
+            <h1 class="text-4xl md:text-7xl font-extrabold mt-6 tracking-tight leading-tight px-2">
                 Hi, I am <span class="text-gradient">M SAEED JAN</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-400 mt-4 font-light">
+            <p class="text-lg md:text-2xl text-slate-400 mt-4 font-light">
                 Web Developer & AI Content Creator
             </p>
-            <p class="text-slate-400 max-w-xl mx-auto mt-6 text-sm md:text-base leading-relaxed">
+            <p class="text-slate-400 max-w-xl mx-auto mt-6 text-xs md:text-base leading-relaxed px-4">
                 Crafting next-generation digital experiences with modern programming standards and leveraging Artificial Intelligence to create impactful content.
             </p>
             
-            <!-- Social Buttons / CTA -->
-            <div class="mt-10 flex flex-wrap justify-center gap-4">
-                <a href="https://youtube.com/@isaeedjan?si=M-ZeNyofbbROioEm" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-red-600/20 card-3d">
-                    <i class="fab fa-youtube text-lg"></i> YouTube Channel
+            <div class="mt-10 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 px-4">
+                <a href="https://youtube.com/@isaeedjan?si=M-ZeNyofbbROioEm" target="_blank" class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20 card-3d">
+                    <i class="fab fa-youtube text-lg"></i> YouTube
                 </a>
-                <a href="https://www.facebook.com/share/18c5RpADPy/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-blue-600/20 card-3d">
-                    <i class="fab fa-facebook-f text-lg"></i> Facebook Profile
+                <a href="https://www.tiktok.com/@msaeedj?_r=1&_d=e8095bghf5igjj&sec_uid=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&share_author_id=6712290561837761542&sharer_language=en&source=h5_m&u_code=d76gjk47l5kh8h&timestamp=1781589212&user_id=6712290561837761542&sec_user_id=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7649613767899023122&share_link_id=f47e071e-1e0a-4f33-ac59-daf3ebecaab4&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" class="w-full sm:w-auto bg-black hover:bg-slate-900 border border-slate-800 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-black/40 card-3d">
+                    <i class="fab fa-tiktok text-lg"></i> TikTok
                 </a>
-                <a href="#contact" class="border border-slate-700 hover:border-blue-500 bg-slate-900/50 px-6 py-3 rounded-xl font-medium transition-all">
+                <a href="https://www.facebook.com/share/18c5RpADPy/" target="_blank" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 card-3d">
+                    <i class="fab fa-facebook-f text-lg"></i> Facebook
+                </a>
+                <a href="#contact" class="w-full sm:w-auto text-center border border-slate-700 hover:border-blue-500 bg-slate-900/50 px-6 py-3 rounded-xl font-medium transition-all">
                     Let's Talk
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 px-6 bg-slate-900/40 relative border-t border-slate-900">
+    <section id="about" class="py-20 px-6 bg-slate-900/40 relative border-t border-slate-900">
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right" data-aos-duration="1000" class="relative group">
                 <div class="absolute -inset-1 bg-gradient-to-r join-gradient from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-                <div class="relative bg-slate-950 p-8 rounded-2xl border border-slate-800/80 transform transition-transform duration-500 hover:scale-[1.02]">
+                <div class="relative bg-slate-950 p-6 md:p-8 rounded-2xl border border-slate-800/80 transform transition-transform duration-500 hover:scale-[1.02]">
                     <div class="w-16 h-16 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-500 text-2xl mb-6">
                         <i class="fas fa-user-astronaut"></i>
                     </div>
@@ -111,18 +124,17 @@
             </div>
             
             <div data-aos="fade-left" data-aos-duration="1000" class="space-y-6">
-                <h2 class="text-4xl font-extrabold tracking-tight">Innovative Mindset, <br><span class="text-gradient">Digital Execution.</span></h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Innovative Mindset, <br><span class="text-gradient">Digital Execution.</span></h2>
                 <p class="text-slate-400 text-sm md:text-base">
                     Main user-friendly interfaces aur intelligent automated workflows design karne me maharat rakhta hon. Mera har project advance tools aur methodologies par base hota hai.
                 </p>
-                <!-- Quick Stats -->
                 <div class="grid grid-cols-2 gap-4 pt-4">
                     <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-xl">
-                        <div class="text-2xl font-bold text-blue-500">Web Dev</div>
+                        <div class="text-xl md:text-2xl font-bold text-blue-500">Web Dev</div>
                         <div class="text-xs text-slate-500 mt-1">Modern Standards</div>
                     </div>
                     <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-xl">
-                        <div class="text-2xl font-bold text-blue-500">AI Integration</div>
+                        <div class="text-xl md:text-2xl font-bold text-blue-500">AI Integration</div>
                         <div class="text-xs text-slate-500 mt-1">Content & Automation</div>
                     </div>
                 </div>
@@ -130,17 +142,14 @@
         </div>
     </section>
 
-    <!-- HISTORY SECTION -->
-    <section id="history" class="py-24 px-6 relative">
+    <section id="history" class="py-20 px-6 relative">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-extrabold tracking-tight">Mera Safar <span class="text-gradient">(History)</span></h2>
-                <p class="text-slate-500 mt-2">Born in KP, building for the digital world.</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Mera Safar <span class="text-gradient">(History)</span></h2>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Born in KP, building for the digital world.</p>
             </div>
 
-            <!-- Timeline -->
             <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
-                <!-- Timeline Item 1 -->
                 <div class="relative pl-8" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-blue-600 rounded-full ring-4 ring-[#0b1120]"></div>
                     <span class="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-950/60 px-3 py-1 rounded-full border border-blue-900/50">1995</span>
@@ -150,7 +159,6 @@
                     </p>
                 </div>
 
-                <!-- Timeline Item 2 -->
                 <div class="relative pl-8" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-blue-600 rounded-full ring-4 ring-[#0b1120]"></div>
                     <span class="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-950/60 px-3 py-1 rounded-full border border-blue-900/50">Location</span>
@@ -160,7 +168,6 @@
                     </p>
                 </div>
 
-                <!-- Timeline Item 3 -->
                 <div class="relative pl-8" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-blue-600 rounded-full ring-4 ring-[#0b1120]"></div>
                     <span class="text-xs font-bold text-blue-400 uppercase tracking-widest bg-blue-950/60 px-3 py-1 rounded-full border border-blue-900/50">Present</span>
@@ -173,17 +180,15 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION (Zarori Section) -->
-    <section id="services" class="py-24 px-6 bg-slate-900/20 border-t border-slate-900">
+    <section id="services" class="py-20 px-6 bg-slate-900/20 border-t border-slate-900">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-extrabold tracking-tight">Main Kya <span class="text-gradient">Karta Hon?</span></h2>
-                <p class="text-slate-500 mt-2">What I offer to my clients and community</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Main Kya <span class="text-gradient">Karta Hon?</span></h2>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">What I offer to my clients and community</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800/80 card-3d text-center" data-aos="flip-left" data-aos-delay="100">
+                <div class="bg-slate-950 p-6 md:p-8 rounded-2xl border border-slate-800/80 card-3d text-center" data-aos="flip-left" data-aos-delay="100">
                     <div class="w-14 h-14 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-500 text-xl mx-auto mb-6">
                         <i class="fas fa-code"></i>
                     </div>
@@ -192,8 +197,7 @@
                         Advance Javascript, HTML, CSS aur modern frameworks ka use kar ke lightning-fast aur optimized websites banana.
                     </p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800/80 card-3d text-center" data-aos="flip-left" data-aos-delay="200">
+                <div class="bg-slate-950 p-6 md:p-8 rounded-2xl border border-slate-800/80 card-3d text-center" data-aos="flip-left" data-aos-delay="200">
                     <div class="w-14 h-14 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-500 text-xl mx-auto mb-6">
                         <i class="fas fa-robot"></i>
                     </div>
@@ -202,8 +206,7 @@
                         Artificial Intelligence automation tools ka sahi use kar ke scripts, audio aur stunning videos aur text content generate karna.
                     </p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800/80 card-3d text-center" data-aos="flip-left" data-aos-delay="300">
+                <div class="bg-slate-950 p-6 md:p-8 rounded-2xl border border-slate-800/80 card-3d text-center" data-aos="flip-left" data-aos-delay="300">
                     <div class="w-14 h-14 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-500 text-xl mx-auto mb-6">
                         <i class="fas fa-laptop-code"></i>
                     </div>
@@ -216,30 +219,28 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 px-6 relative">
-        <div class="max-w-4xl mx-auto bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 p-8 md:p-12 rounded-3xl glow-effect text-center" data-aos="zoom-in" data-aos-duration="1000">
-            <h2 class="text-4xl font-extrabold tracking-tight">Let's Work <span class="text-gradient">Together</span></h2>
+    <section id="contact" class="py-20 px-6 relative">
+        <div class="max-w-4xl mx-auto bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 p-6 md:p-12 rounded-3xl glow-effect text-center" data-aos="zoom-in" data-aos-duration="1000">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Let's Work <span class="text-gradient">Together</span></h2>
             <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm md:text-base">
                 Aap ko koi website banwani ho ya kisi AI project par discuss karna ho? Aap mujhe direct email send kar sakte hain.
             </p>
 
-            <div class="mt-8 inline-flex items-center gap-3 bg-slate-900 border border-slate-800 px-6 py-4 rounded-2xl group hover:border-blue-500 transition-all">
-                <i class="fas fa-envelope text-blue-500 text-xl group-hover:scale-110 transition-transform"></i>
-                <a href="mailto:Lawangenter@gmail.com" class="text-base md:text-lg font-semibold text-slate-200 hover:text-blue-400 transition-colors">
+            <div class="mt-8 inline-flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-3 md:px-6 md:py-4 rounded-2xl group hover:border-blue-500 transition-all max-w-full overflow-hidden">
+                <i class="fas fa-envelope text-blue-500 text-lg md:text-xl group-hover:scale-110 transition-transform shrink-0"></i>
+                <a href="mailto:Lawangenter@gmail.com" class="text-sm md:text-lg font-semibold text-slate-200 hover:text-blue-400 transition-colors break-all">
                     Lawangenter@gmail.com
                 </a>
             </div>
 
-            <!-- Social Connect Links -->
             <div class="mt-12 flex justify-center space-x-6 text-slate-400 text-2xl">
                 <a href="https://youtube.com/@isaeedjan?si=M-ZeNyofbbROioEm" target="_blank" class="hover:text-red-500 transition-colors"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@msaeedj?_r=1&_d=e8095bghf5igjj&sec_uid=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&share_author_id=6712290561837761542&sharer_language=en&source=h5_m&u_code=d76gjk47l5kh8h&timestamp=1781589212&user_id=6712290561837761542&sec_user_id=MS4wLjABAAAAeikppHc5o32tf9LGs4TPL4Vjw_K-h8cYSYXNNWNM4PWbF53qJeKw_Gd5JAbENz8h&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7649613767899023122&share_link_id=f47e071e-1e0a-4f33-ac59-daf3ebecaab4&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-tiktok"></i></a>
                 <a href="https://www.facebook.com/share/18c5RpADPy/" target="_blank" class="hover:text-blue-500 transition-colors"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="py-8 border-t border-slate-900 bg-slate-950 text-center text-xs md:text-sm text-slate-500">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
@@ -253,13 +254,36 @@
         </div>
     </footer>
 
-    <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initializing the 3D scroll animations
         AOS.init({
-            once: true, // Animation scroll karte waqt sirf ek baar chalegi
+            once: true, 
             mirror: false
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Toggle hamburger icon to close icon
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars';
+            } else {
+                icon.className = 'fas fa-times';
+            }
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.querySelector('i').className = 'fas fa-bars';
+            });
         });
     </script>
 </body>
